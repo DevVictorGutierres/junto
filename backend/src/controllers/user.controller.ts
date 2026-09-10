@@ -37,7 +37,9 @@ const updateUserController = async (req: Request, res: Response) => {
     throw new AppError('Você não tem permissão para atualizar este usuário', 403);
   }
   
-  const updatedUser = await updateUser(id, req.body);
+  const {confirmarSenha, ...userData} = req.body;
+
+  const updatedUser = await updateUser(id, userData);
   return res.status(200).json({
     message: 'Usuário atualizado com sucesso!',
     user: updatedUser

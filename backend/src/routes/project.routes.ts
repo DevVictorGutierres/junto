@@ -3,7 +3,7 @@ import { projectFiltersSchema } from '../validations/filter.project.schema.js';
 import { authMiddleware } from '../middlewares/auth.middleware.js';
 import { validateQuery } from '../middlewares/query.middleware.js';
 import { validate } from '../middlewares/validate.middleware.js';
-import { projectSchema } from '../validations/project.schema.js';
+import { projectSchema, updateProjectSchema } from '../validations/project.schema.js';
 import { Router } from 'express';
 
 const projectRouter = Router();
@@ -25,6 +25,7 @@ projectRouter.get('/projects/:id/users',
 
 projectRouter.put('/projects/:id',
     authMiddleware,
+    validate(updateProjectSchema),
     updateProjectController);
 
 projectRouter.delete('/projects/:id',

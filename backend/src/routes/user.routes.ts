@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { createUserController, getAllUsersController, getUserByIdController, updateUserController, deleteUserController, getProjectsUserController } from '../controllers/user.controller.js';
 import { authMiddleware } from '../middlewares/auth.middleware.js';
 import { validate } from '../middlewares/validate.middleware.js';
-import { userSchema } from '../validations/user.schema.js';
+import { userSchema, userUpdateSchema } from '../validations/user.schema.js';
 
 const userRouter = Router();
 
@@ -24,6 +24,7 @@ userRouter.get('/users/:id/projects',
 
 userRouter.put('/users/:id',
     authMiddleware,
+    validate(userUpdateSchema),
     updateUserController);
 
 userRouter.delete('/users/:id',

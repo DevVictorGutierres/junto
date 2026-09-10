@@ -38,3 +38,50 @@ export const userSchema = z.object({
     path: ["confirmarSenha"],
 });
 
+export const userUpdateSchema = z.object({
+    nome: z
+        .string()
+        .trim()
+        .min(3, "O nome deve ter no mínimo 3 caracteres")
+        .max(255)
+        .optional(),
+    email: z
+        .string()
+        .trim()
+        .toLowerCase()
+        .email("Email invalido")
+        .optional(),
+    senha: z.string().min(8, "A senha deve ter um mínimo de 8 caracteres").optional(),
+    confirmarSenha: z.string().min(8, "A senha deve ter um mínimo de 8 caracteres").optional(),
+    cpf: z
+        .string()
+        .regex(/^\d{11}$/, "CPF deve conter exatamente 11 números")
+        .optional(),
+    telefone: z
+        .string()
+        .regex(/^\d{10,11}$/, "Telefone inválido")
+        .optional(),
+    endereco: z.string().min(3, "Endereço deve conter no mínimo 3 caracteres").max(255).optional(),
+    bairro: z.string().min(3, "Bairro deve conter no mínimo 3 caracteres").max(100).optional(),
+    cidade: z.string().min(3, "Cidade deve conter no mínimo 3 caracteres").max(100).optional(),
+    estado: z
+        .string()
+        .trim()
+        .toUpperCase()
+        .refine((estado) => estados.includes(estado as typeof estados[number]), {
+            message: "Estado inválido",
+        })
+        .optional(),
+    cep: z
+        .string()
+        .regex(/^\d{8}$/, "CEP inválido")
+        .optional(),
+}).refine(
+    (valor) =>
+        (!valor.senha && !valor.confirmarSenha) ||
+        (valor.senha === valor.confirmarSenha),
+    {
+        message: "As senhas não conferem",
+        path: ["confirmarSenha"],
+    }
+)
