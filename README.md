@@ -1,12 +1,12 @@
-# Projeto Social Bauru
+# Juntô
 
-Projeto Social Bauru is a free platform designed to help people discover and join social projects in Bauru, Brazil. The idea is similar to a discovery marketplace: instead of searching for accommodation or products, users search for organizations and initiatives where they can volunteer, participate, or find support.
+Juntô is a free platform designed to help people discover and join social projects in Brazil. The idea is similar to a discovery marketplace: instead of searching for accommodation or products, users search for organizations and initiatives where they can volunteer, participate, or find support.
 
 ## Motivation
 
 Many social projects rely almost exclusively on Instagram, Facebook, or WhatsApp to communicate their work. This makes them difficult to discover, especially for people who do not already know the organization or follow its social media accounts.
 
-Projeto Social Bauru aims to bring these initiatives together in one accessible place, making it easier to:
+Juntô aims to bring these initiatives together in one accessible place, making it easier to:
 
 - discover active social projects;
 - understand their purpose and area of work;
