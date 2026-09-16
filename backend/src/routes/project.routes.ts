@@ -13,7 +13,7 @@ projectRouter.post('/projects',
     validate(projectSchema),
     createProjectController);
 
-projectRouter.get('/projects', 
+projectRouter.get('/projects',
     validateQuery(projectFiltersSchema),
     getAllProjectsController);
 

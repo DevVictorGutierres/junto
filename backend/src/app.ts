@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.get("/", (_, res) => {
     return res.status(200).json({
-        application: "Juntô",
+        application: "Junto",
         version: "1.0.0",
         status: "online"
     });
