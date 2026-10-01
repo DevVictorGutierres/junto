@@ -84,4 +84,4 @@ export const userUpdateSchema = z.object({
         message: "As senhas não conferem",
         path: ["confirmarSenha"],
     }
-)
+);
